@@ -1,0 +1,18 @@
+{{> main}}
+
+<h1>Welcome, {{username}}!</h1>
+
+<h2>Your Tasks</h2>
+<ul>
+  {{#each tasks}}
+    <li>
+      {{this.task_desc}} - {{#if this.is_complete}}Completed{{else}}Not completed{{/if}}
+    </li>
+  {{/each}}
+</ul>
+
+<h2>Add a New Task</h2>
+<form action="/add_task" method="POST">
+  <input type="text" name="task_desc" placeholder="Task description">
+  <button type="submit">Add Task</button>
+</form>
