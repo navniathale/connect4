@@ -1,7 +1,33 @@
-<h1>Login</h1>
-<form action="/login" method="POST">
-  <label for="username">Username: </label>
-  <input type="text" name="username" id="username">
-  <button type="submit">Login</button>
-</form>
-<a href="/register">Create Account</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo List</title>
+</head>
+<body>
+  <h1>To-Do List</h1>
+
+  <!-- Form to Add a New Task -->
+  <form action="/addTask" method="POST">
+    <label for="title">Task Title:</label>
+    <input type="text" id="title" name="title" required>
+    
+    <label for="description">Description:</label>
+    <textarea id="description" name="description"></textarea>
+
+    <button type="submit">Add Task</button>
+  </form>
+
+  <h2>Current Tasks</h2>
+  <ul>
+    {{#each tasks}}
+      <li>
+        <strong>{{this.title}}</strong><br>
+        {{this.description}}
+      </li>
+    {{/each}}
+  </ul>
+</body>
+</html>
+
